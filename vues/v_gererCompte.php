@@ -1,6 +1,36 @@
 
 <h2>Bienvenue sur votre compte <?php echo $_SESSION['prenom']."  ".$_SESSION['nom']?></h2>
 
+<form method="POST" action="index.php?uc=gererCompte&action=modifierINFO">
+<table align="center" border="0">
+  <tr>
+    <td>Modifier nom :</td>
+    <td><input type="text" placeholder= <?php echo $_SESSION['nom']?> name="newNOM" size="30"><br /></td>
+  </tr>
+  <tr>
+    <td>Modifier prenom : </td>
+    <td><input type="text" placeholder= <?php echo $_SESSION['prenom']?> name="newPRENOM" size="30"  ><br /></td>
+  </tr>
+  <tr>
+    <td>Modifier adresse : </td>
+    <td><input type="text" placeholder= <?php echo $_SESSION['adresse']?> name="newADRESSE" size="30" ><br /></td>
+  </tr>
+  <tr>
+    <td>Modifier code postal : </td>
+    <td><input type="text" placeholder= <?php echo $_SESSION['cp']?> name="newCP" size="30" ><br /></td>
+  </tr>
+  <tr>
+    <td>Modifier ville : </td>
+    <td><input type="text" placeholder= <?php echo $_SESSION['ville']?> name="newVILLE" size="30" ><br /></td>
+  </tr>
+  <tr>
+    <td><input type="submit" name="valider" value="valider"></td>
+  </tr>
+</table>
+</form>
+
+
+
 <form method="POST" action="index.php?uc=gererCompte&action=modifierMDP">
 <table align="center" border="0">
   <tr>

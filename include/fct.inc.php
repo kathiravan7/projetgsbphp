@@ -20,10 +20,13 @@ function estConnecte(){
  * @param $nom
  * @param $prenom
  */
-function connecter($id,$nom,$prenom,$mdp){
+function connecter($id,$nom,$prenom,$adresse,$cp,$ville,$mdp){
 	$_SESSION['idVisiteur']= $id; 
 	$_SESSION['nom']= $nom;
 	$_SESSION['prenom']= $prenom;
+	$_SESSION['cp']= $cp;
+	$_SESSION['ville']= $ville;
+	$_SESSION['adresse']= $adresse;
 	$_SESSION['motdepasse']= $mdp;
 	}
 	/**]

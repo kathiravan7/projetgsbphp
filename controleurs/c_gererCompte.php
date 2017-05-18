@@ -5,6 +5,17 @@ switch($action){
 	case 'gererMDP':{
 		include("../vues/v_gererCompte.php");}
 		break;
+
+	case 'modifierINFO':
+		$id=$_SESSION['idVisiteur'];
+		$nom=$_POST['newNOM'];
+		$prenom=$_POST['newPRENOM'];
+		$adresse=$_POST['newADRESSE'];
+		$cp=$_POST['newCP'];
+		$ville=$_POST['newVILLE'];
+		$pdo->majInfo($id,$nom,$prenom,$adresse,$cp,$ville);
+
+		break;
 	
 	case 'modifierMDP':{
 		$id=$_SESSION['idVisiteur'];

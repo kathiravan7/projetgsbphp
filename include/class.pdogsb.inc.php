@@ -54,7 +54,7 @@ class PdoGsb{
  * @return l'id, le nom et le prénom sous la forme d'un tableau associatif 
 */
 	public function getInfosVisiteur($login, $mdp){
-		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom, visiteur.mdp as motdepasse from visiteur 
+		$req = "select visiteur.id as id, visiteur.nom as nom, visiteur.prenom as prenom, visiteur.mdp as motdepasse, visiteur.adresse as adresse, visiteur.cp as cp, visiteur.ville as ville from visiteur 
 		where visiteur.login='$login' and visiteur.mdp='$mdp'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
@@ -169,8 +169,21 @@ class PdoGsb{
 public function majMotdepasse($idVisiteur, $motdepasse){
 		$req = "update visiteur set mdp = '$motdepasse' 
 		where id = '$idVisiteur'";
-		PdoGsb::$monPdo->exec($req);	
+		PdoGsb::$monPdo->exec($req);
+		header("Location: index.php?uc=gererCompte&action=gererMDP");	
 	}
+/**
+ * met à jour les infos
+ * pour le visiteur concerné
+ 
+*/
+public function majInfo($idVisiteur,$nom,$prenom,$adresse,$cp,$ville){
+	$req = "update visiteur set nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = '$ville'
+	where id = '$idVisiteur'";
+	PdoGsb::$monPdo->exec($req);
+	header("Location: index.php?uc=gererCompte&action=gererMDP");
+	
+}
 /**
  * Teste si un visiteur possède une fiche de frais pour le mois passé en argument
  

@@ -21,8 +21,11 @@ switch($action){
 			$id = $visiteur['id'];
 			$nom =  $visiteur['nom'];
 			$prenom = $visiteur['prenom'];
+			$adresse = $visiteur['adresse'];
+			$cp = $visiteur['cp'];
+			$ville = $visiteur['ville'];
 			$mdp= $visiteur['motdepasse'];
-			connecter($id,$nom,$prenom,$mdp);
+			connecter($id,$nom,$prenom,$adresse,$cp,$ville,$mdp);
 			include("../vues/v_sommaire.php");
 		}
 		break;
