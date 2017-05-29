@@ -161,29 +161,7 @@ class PdoGsb{
 		PdoGsb::$monPdo->exec($req);	
 	}
 
-/**
- * met à jour le mot de passe
- * pour le visiteur concerné
- 
-*/
-public function majMotdepasse($idVisiteur, $motdepasse){
-		$req = "update visiteur set mdp = '$motdepasse' 
-		where id = '$idVisiteur'";
-		PdoGsb::$monPdo->exec($req);
-		header("Location: index.php?uc=gererCompte&action=gererMDP");	
-	}
-/**
- * met à jour les infos
- * pour le visiteur concerné
- 
-*/
-public function majInfo($idVisiteur,$nom,$prenom,$adresse,$cp,$ville){
-	$req = "update visiteur set nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = '$ville'
-	where id = '$idVisiteur'";
-	PdoGsb::$monPdo->exec($req);
-	header("Location: index.php?uc=gererCompte&action=gererMDP");
-	
-}
+
 /**
  * Teste si un visiteur possède une fiche de frais pour le mois passé en argument
  
@@ -308,6 +286,30 @@ public function majInfo($idVisiteur,$nom,$prenom,$adresse,$cp,$ville){
 		$laLigne = $res->fetch();
 		return $laLigne;
 	}
+
+	/**
+ * met à jour le mot de passe
+ * pour le visiteur concerné
+ 
+*/
+public function majMotdepasse($idVisiteur, $motdepasse){
+		$req = "update visiteur set mdp = '$motdepasse' 
+		where id = '$idVisiteur'";
+		PdoGsb::$monPdo->exec($req);
+		header("Location: index.php?uc=gererCompte&action=gererMDP");	
+	}
+/**
+ * met à jour les infos
+ * pour le visiteur concerné
+ 
+*/
+public function majInfo($idVisiteur,$nom,$prenom,$adresse,$cp,$ville){
+	$req = "update visiteur set nom = '$nom', prenom = '$prenom', adresse = '$adresse', cp = '$cp', ville = '$ville'
+	where id = '$idVisiteur'";
+	PdoGsb::$monPdo->exec($req);
+	header("Location: index.php?uc=gererCompte&action=gererMDP");
+	
+}
 /**
  * Modifie l'état et la date de modification d'une fiche de frais
  

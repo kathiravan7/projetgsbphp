@@ -36,8 +36,8 @@ switch($action){
 					}		
 				}
 				else {
-						ajouterErreur("Les 2 nouveaux mots de passe de corresponde pas");
-						include("../vues/v_erreurs.php");
+					ajouterErreur("Les 2 nouveaux mots de passe de corresponde pas");
+					include("../vues/v_erreurs.php");
 				}	
 			}
 			else{
